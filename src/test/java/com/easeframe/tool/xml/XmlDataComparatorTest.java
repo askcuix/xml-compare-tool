@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.easeframe.tool.comparator.XmlDataComparator;
+
 public class XmlDataComparatorTest {
 
 	@Test
@@ -53,8 +55,8 @@ public class XmlDataComparatorTest {
 		utSwDestData.add(utSwDestMap);
 		destData.put("fundSw", utSwDestData);
 
-		XmlDataComparator comparator = new XmlDataComparator();
-		comparator.compare(srcData, destData);
+//		XmlDataComparator comparator = new XmlDataComparator();
+//		comparator.compare(srcData, destData);
 	}
 
 }

@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.easeframe.tool.parser.XmlDomReader;
+
 public class XmlDomReaderTest {
 
 	@Test

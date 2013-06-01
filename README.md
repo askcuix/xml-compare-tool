@@ -36,20 +36,18 @@ In our scenario, I need compare 2 XML files which generated from program, that m
    **repeat.tag**   
    *Optional*. The repeatable element of XML record. Each list of values will treat as one field, such as *Price* from above.
    
-2. Build your project, the xml-compare-tool-<version>-jar-with-dependencies.jar will generated.   
+2. Build your project, the xml-compare-tool-\<version>-jar-with-dependencies.jar will generated.   
    *mvn clean install*
 
-3. Copy xml-compare-tool-<version>-jar-with-dependencies.jar to your folder, e.g. */User/Chris/xmlCompare*.
+3. Copy xml-compare-tool-\<version>-jar-with-dependencies.jar to your folder, e.g. */User/Chris/xmlCompare*.
 
-4. Go into your folder, and run command like below. The file path should be absolute path, you can adjust maximum memory size according to your file size.
-   *java -Xmx1024m -jar xml-compare-tool-<version>-jar-with-dependencies.jar <source file> <compared file>*
+4. Go into your folder, and run command like below. The file path should be absolute path, you can adjust maximum memory size according to your file size.  
+   *java -Xmx1024m -jar xml-compare-tool-\<version>-jar-with-dependencies.jar <source file> <compared file>*
 
 5. Check report log *logs/report.log* to find out data difference, also include below statistics info.  
-   \- Total record count in source file
-   \- Total record count in compared file
-   \- Different record count
-   \- Different field list
-   \- Processing time.
-.  
-. 
-. 
+   \- Total record count in source file  
+   \- Total record count in compared file  
+   \- Different record count  
+   \- Different field list  
+   \- Processing time  
+

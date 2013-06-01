@@ -18,9 +18,22 @@ import org.slf4j.LoggerFactory;
 import com.easeframe.tool.Constant;
 import com.easeframe.tool.util.PropertiesLoader;
 
+/**
+ * XML content DOM reader.
+ * 
+ * @author Chris
+ * 
+ */
 public class XmlDomReader {
 	private static Logger logger = LoggerFactory.getLogger(XmlDomReader.class);
 
+	/**
+	 * Parse XML content to data map.
+	 * 
+	 * @param xml
+	 *            XML content
+	 * @return data mapping
+	 */
 	public Map<String, Object> read(String xml) {
 		Document doc = null;
 		try {

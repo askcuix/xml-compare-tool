@@ -3,6 +3,12 @@ package com.easeframe.tool.parser;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Full XML file parser.
+ * 
+ * @author Chris
+ * 
+ */
 public class FullXmlDataHanlderImpl extends XmlDataHandler {
 
 	private int recordCount = 0;
@@ -27,6 +33,13 @@ public class FullXmlDataHanlderImpl extends XmlDataHandler {
 		return recordCount;
 	}
 
+	/**
+	 * Get XML data mapping.
+	 * 
+	 * Key is record key, Value is XML content.
+	 * 
+	 * @return data mapping
+	 */
 	public Map<String, String> getXmlData() {
 		return xmlDataMap;
 	}

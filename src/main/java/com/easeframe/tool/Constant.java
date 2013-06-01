@@ -1,5 +1,11 @@
 package com.easeframe.tool;
 
+/**
+ * Constants.
+ * 
+ * @author Chris
+ *
+ */
 public class Constant {
 
 	public static final String CONFIG_PATH = "/config.properties";

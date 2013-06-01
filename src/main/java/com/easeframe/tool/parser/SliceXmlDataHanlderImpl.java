@@ -2,13 +2,25 @@ package com.easeframe.tool.parser;
 
 import com.easeframe.tool.comparator.XmlDataComparator;
 
+/**
+ * Slice XML file parser.
+ * 
+ * @author Chris
+ * 
+ */
 public class SliceXmlDataHanlderImpl extends XmlDataHandler {
-	
+
 	private int recordCount = 0;
-	
+
 	private XmlDataComparator dataComparator = null;
-	
-	public SliceXmlDataHanlderImpl(XmlDataComparator dataComparator){
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param dataComparator
+	 *            XML content comparator
+	 */
+	public SliceXmlDataHanlderImpl(XmlDataComparator dataComparator) {
 		this.dataComparator = dataComparator;
 	}
 

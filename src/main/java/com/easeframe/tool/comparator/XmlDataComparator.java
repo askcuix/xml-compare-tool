@@ -14,6 +14,12 @@ import org.slf4j.LoggerFactory;
 
 import com.easeframe.tool.parser.XmlDomReader;
 
+/**
+ * XML content comparator.
+ * 
+ * @author Chris
+ * 
+ */
 public class XmlDataComparator {
 
 	private static Logger reportLogger = LoggerFactory.getLogger("report");
@@ -26,10 +32,24 @@ public class XmlDataComparator {
 
 	private XmlDomReader xmlReader = new XmlDomReader();
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param dataMap
+	 *            source XML content
+	 */
 	public XmlDataComparator(Map<String, String> dataMap) {
 		this.dataMap = dataMap;
 	}
 
+	/**
+	 * Compare with source XML content.
+	 * 
+	 * @param key
+	 *            record key
+	 * @param comparedXml
+	 *            XML content
+	 */
 	public void compare(String key, String comparedXml) {
 		if (!dataMap.containsKey(key)) {
 			reportLogger.info("Record [{}] only exist in compared file.", key);
@@ -58,6 +78,9 @@ public class XmlDataComparator {
 		dataMap.remove(key);
 	}
 
+	/**
+	 * Aggregate compare result.
+	 */
 	public void aggregate() {
 		if (dataMap.isEmpty()) {
 			return;
@@ -73,16 +96,26 @@ public class XmlDataComparator {
 		}
 	}
 
+	/**
+	 * Get different fields
+	 * 
+	 * @return different fields
+	 */
 	public Set<String> getDiffFields() {
 		return diffFields;
 	}
 
+	/**
+	 * Get different record count.
+	 * 
+	 * @return different record count
+	 */
 	public int getDiffCount() {
 		return diffCnt;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<String> compareFields(Map<String, Object> srcData,
+	private List<String> compareFields(Map<String, Object> srcData,
 			Map<String, Object> destData) {
 		if (srcData == null || srcData.isEmpty()) {
 			throw new IllegalArgumentException(
@@ -196,7 +229,7 @@ public class XmlDataComparator {
 				|| valuePair.size() != destValList.size()) {
 			StringBuffer logBuffer = new StringBuffer("Field[" + key
 					+ "] not matched: ");
-			logBuffer.append("\t\tOnly exist in source file: ");
+			logBuffer.append("\n\t\t\t\t\t\t\t\tOnly exist in source file: ");
 			for (int i = 0; i < srcValList.size(); i++) {
 				if (!valuePair.containsKey(i)) {
 					Map<String, String> conflictSrcMap = srcValList.get(i);
@@ -209,7 +242,7 @@ public class XmlDataComparator {
 				}
 			}
 
-			logBuffer.append("\t\tOnly exist in compared file: ");
+			logBuffer.append("\n\t\t\t\t\t\t\t\tOnly exist in compared file: ");
 			for (int i = 0; i < destValList.size(); i++) {
 				if (!valuePair.containsValue(i)) {
 					Map<String, String> conflictDestMap = destValList.get(i);
@@ -232,7 +265,8 @@ public class XmlDataComparator {
 		for (Map<String, String> value : valueList) {
 			log.append("[");
 			for (String key : value.keySet()) {
-				log.append("Field: " + key + " Value: " + value.get(key) + " ");
+				log.append("{Field: " + key + ", Value: " + value.get(key)
+						+ "} ");
 			}
 			log.append("]");
 		}

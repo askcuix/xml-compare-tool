@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<User>
+	<Id>1</Id>
+	<Name>ADMIN</Name>
+	<Age>30</Age>
+	<Address>
+		<Country>CN</Country>
+		<City>GZ</City>
+	</Address>
+	<Address>
+		<Country>TW</Country>
+		<City>TW</City>
+	</Address>
+</User>

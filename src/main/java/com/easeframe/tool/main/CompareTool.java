@@ -7,13 +7,21 @@ import org.slf4j.LoggerFactory;
 import com.easeframe.tool.comparator.XmlDataComparator;
 import com.easeframe.tool.parser.FullXmlDataHanlderImpl;
 import com.easeframe.tool.parser.SliceXmlDataHanlderImpl;
-import com.easeframe.tool.util.PropertiesLoader;
 
+/**
+ * XML compare tool entry point.
+ * 
+ * @author Chris
+ * 
+ */
 public class CompareTool {
 	private static Logger reportLogger = LoggerFactory.getLogger("report");
 
 	/**
+	 * Entry point
+	 * 
 	 * @param args
+	 *            first is source XML file, second is compared XML file
 	 */
 	public static void main(String[] args) throws Exception {
 		if (args == null || args.length != 2) {
@@ -24,8 +32,6 @@ public class CompareTool {
 		String destFile = args[1];
 
 		long start = System.currentTimeMillis();
-
-		PropertiesLoader.load();
 
 		reportLogger
 				.info(">>>>>> Start to compare XML file - Source File[{}], Compared File[{}] <<<<<<",

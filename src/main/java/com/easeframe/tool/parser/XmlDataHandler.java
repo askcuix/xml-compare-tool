@@ -21,6 +21,12 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import com.easeframe.tool.Constant;
 import com.easeframe.tool.util.PropertiesLoader;
 
+/**
+ * XML data file parser base class.
+ * 
+ * @author Chris
+ * 
+ */
 public abstract class XmlDataHandler extends DefaultHandler {
 
 	protected static Logger logger = LoggerFactory
@@ -38,6 +44,13 @@ public abstract class XmlDataHandler extends DefaultHandler {
 
 	private Map<String, String> recordKey = new LinkedHashMap<String, String>();
 
+	/**
+	 * Parse XML file.
+	 * 
+	 * @param filepath
+	 *            XML file path
+	 * @throws Exception
+	 */
 	public void processFile(String filepath) throws Exception {
 		this.filePath = filepath;
 
@@ -79,10 +92,26 @@ public abstract class XmlDataHandler extends DefaultHandler {
 		}
 	}
 
+	/**
+	 * Process single XML record.
+	 * 
+	 * @param key
+	 *            record key
+	 * @param xml
+	 *            XML content
+	 */
 	protected abstract void processElement(String key, String xml);
 
+	/**
+	 * Process after XML parse finish.
+	 */
 	protected abstract void processDocument();
 
+	/**
+	 * Get total record count of XML.
+	 * 
+	 * @return record count
+	 */
 	public abstract int getRecordCount();
 
 	@Override

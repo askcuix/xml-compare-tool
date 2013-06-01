@@ -10,6 +10,12 @@ import org.slf4j.LoggerFactory;
 
 import com.easeframe.tool.Constant;
 
+/**
+ * XML Compare Tool Configure Loader.
+ * 
+ * @author Chris
+ * 
+ */
 public class PropertiesLoader {
 
 	private static Logger logger = LoggerFactory
@@ -17,6 +23,11 @@ public class PropertiesLoader {
 
 	private static Properties properties = new Properties();
 
+	/**
+	 * Load configure file.
+	 * 
+	 * @return configure list
+	 */
 	public static Properties load() {
 		if (!properties.isEmpty()) {
 			return properties;
@@ -46,7 +57,18 @@ public class PropertiesLoader {
 		return properties;
 	}
 
+	/**
+	 * Get property with key.
+	 * 
+	 * @param key
+	 *            configure key
+	 * @return configure value
+	 */
 	public static String getProperty(String key) {
+		if (properties.isEmpty()) {
+			load();
+		}
+
 		if (properties.isEmpty()) {
 			logger.error("No availabled properties!");
 			throw new IllegalStateException("No availabled properties!");
